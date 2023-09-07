@@ -7,3 +7,4 @@
 ## TDD
 - MemoryUserRepositoryTest
     - save(User) : User
+    - findById(Integer:id) : User
