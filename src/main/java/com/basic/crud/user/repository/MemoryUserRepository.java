@@ -45,4 +45,14 @@ public class MemoryUserRepository implements UserRepository {
 
         return user;
     }
+
+    @Override
+    public void delete(User user) {
+        store.remove(user.getId());
+    }
+
+    @Override
+    public int size() {
+        return store.size();
+    }
 }

@@ -10,4 +10,6 @@ public interface UserRepository {
     Optional<User> findById(Integer id);
     List<User> findAll();
     User update(User user);
+    void delete(User user);
+    int size();
 }

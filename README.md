@@ -9,3 +9,4 @@
     - save(User) : User
     - findById(Integer:id) : User
     - update(User) : User
+    - delete(User) : void

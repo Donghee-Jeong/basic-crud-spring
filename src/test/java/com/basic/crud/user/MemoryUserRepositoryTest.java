@@ -3,6 +3,7 @@ package com.basic.crud.user;
 import com.basic.crud.user.entity.User;
 import com.basic.crud.user.repository.MemoryUserRepository;
 import com.basic.crud.user.repository.UserRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -85,5 +86,18 @@ public class MemoryUserRepositoryTest {
 
         //then
         assertThat(user).isEqualTo(updatedNewUser);
+    }
+
+    @Test
+    void delete() {
+        //given
+        User user = new User("user", 20);
+        User savedUser = repository.save(user);
+
+        //when
+        repository.delete(savedUser);
+
+        //then
+        assertThat(repository.size()).isEqualTo(0);
     }
 }
