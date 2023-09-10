@@ -3,7 +3,6 @@ package com.basic.crud.user;
 import com.basic.crud.user.entity.User;
 import com.basic.crud.user.repository.MemoryUserRepository;
 import com.basic.crud.user.repository.UserRepository;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -64,11 +63,11 @@ public class MemoryUserRepositoryTest {
     @DisplayName("존재하던 User 업데이트")
     void update() {
         //given
-        User user = new User("user", 20);
+        User user = new User("templates", 20);
         User savedUser = repository.save(user);
 
         //when
-        savedUser.update("user", 21);
+        savedUser.update("templates", 21);
         User updatedUser = repository.update(user);
 
         //then
@@ -79,7 +78,7 @@ public class MemoryUserRepositoryTest {
     @DisplayName("존재하지 않던 User 업데이트")
     void updateNewUser() {
         //given
-        User user = new User("user", 20);
+        User user = new User("templates", 20);
 
         //when
         User updatedNewUser = repository.update(user);
@@ -91,7 +90,7 @@ public class MemoryUserRepositoryTest {
     @Test
     void delete() {
         //given
-        User user = new User("user", 20);
+        User user = new User("templates", 20);
         User savedUser = repository.save(user);
 
         //when

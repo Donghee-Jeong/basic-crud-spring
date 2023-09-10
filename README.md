@@ -10,3 +10,6 @@
     - findById(Integer:id) : User
     - update(User) : User
     - delete(User) : void
+## API
+- GET /users : 유저 리스트
+- GET /users/new : 새로운 유저 등록
