@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+</head>
+<body>
+    <form th:action="@{/users/{id}(id=${user.id})}" th:method="patch">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>AGE</th>
+            </tr>
+            <tr>
+                <td th:text="${user.id}"></td>
+                <td><input th:value="${user.name}" th:type="text" th:name="name"></td>
+                <td><input th:value="${user.age}" th:type="number" th:name="age"></td>
+            </tr>
+        </table>
+        <button th:type="submit">수정</button>
+    </form>
+    <form th:action="@{/users/{id}(id=${user.id})}" th:method="delete">
+        <button th:type="submit">삭제</button>
+    </form>
+    <button th:onclick="|location.href='@{/users}'|">취소</button>
+</body>
+</html>

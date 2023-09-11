@@ -12,4 +12,6 @@
     - delete(User) : void
 ## API
 - GET /users : 유저 리스트
-- GET /users/new : 새로운 유저 등록
+- POST /users/new : 새로운 유저 등록
+- PATCH /users/{id} : 유저 정보 수정
+- DELETE /users/{id} : 유저 삭제

@@ -5,9 +5,7 @@ import com.basic.crud.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -35,5 +33,27 @@ public class UserController {
     public String addUser(@ModelAttribute User user) {
         service.addUser(user);
         return "redirect:/";
+    }
+
+    @GetMapping("/users/{id}")
+    public String userInfo(@PathVariable Integer id, Model model) {
+        User user = service.getUserById(id);
+        model.addAttribute("user", user);
+        return "user-info";
+    }
+
+    @PatchMapping("/users/{id}")
+    public String userUpdate(@PathVariable Integer id, @ModelAttribute User user) {
+        User originUser = service.getUserById(id);
+        originUser.update(user.getName(), user.getAge());
+        service.updateUser(originUser);
+        return "redirect:/users";
+    }
+
+    @DeleteMapping("/users/{id}")
+    public String userDelete(@PathVariable Integer id) {
+        User user = service.getUserById(id);
+        service.deleteUser(user);
+        return "redirect:/users";
     }
 }

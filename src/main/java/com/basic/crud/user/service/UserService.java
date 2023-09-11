@@ -20,4 +20,17 @@ public class UserService {
     public User addUser(User user) {
         return repository.save(user);
     }
+
+    public User getUserById(Integer id) {
+        return repository.findById(id)
+                .orElseGet(() -> new User("unknown", 9999));
+    }
+
+    public User updateUser(User originUser) {
+        return repository.update(originUser);
+    }
+
+    public void deleteUser(User user) {
+        repository.delete(user);
+    }
 }
